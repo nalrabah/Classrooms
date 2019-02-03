@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+
 <div class="card text-center">
   <div class="card-header" style="background-color: #e3f2fd; color: 000034;">
     Classroom Details
@@ -10,7 +11,29 @@
     <p class="card-text" style="color: 000034;">{{classroom.year}}</p>
     <a href="{% url 'classroom-update' classroom.id %}" class="btn" style="background-color: #000034; color: white;">Update</a>
     <a href="{% url 'classroom-delete' classroom.id %}" class="btn" style="background-color: #FFA500; color: #000034;">Delete</a>
+    <a href="{% url 'student-create' classroom.id %}" class="btn btn-outline-success btn-block">Add Student</a>
+        </div>
   </div>
 </div>
 
+<table class="table table-bordered table-dark">
+  <thead>
+    <tr>
+      <th scope="colspan=4">Name</th>
+      <th scope="col">Date of Birth</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Exam grade</th>
+    </tr>
+  </thead>
+  {% for student in students %}
+  <tbody>
+    <tr>
+      <td>{{student.name}}</td>
+      <td>{{student.date_of_birth}}</td>
+      <td>{{student.gender}}</td>
+      <td>{{student.exam_grade}}</td>
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
 {% endblock content %}

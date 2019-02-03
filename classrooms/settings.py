@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'classes',
 
     'crispy_forms',
+    'bootstrap_datepicker',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
